@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Invoices and Line Items">
+        <template if:true={gridData}>
+            <!-- <lightning-tree-grid
+                columns={gridColumns}
+                data={gridData}
+                key-field="id"
+                expanded-rows={currentExpanded}
+                ontoggle={handleAction}
+                hide-checkbox-column
+                onrowselection ={handleRowSelection}
+                is-loading={isLoading}>
+            </lightning-tree-grid> -->
+
+            <template for:each={gridData} for:item="invoice">
+                <div key={invoice.id}>
+                    <h3 onclick={handleToggle} data-id={invoice.id}>{invoice.name}</h3>
+                    <ol>
+                    <div if:true={invoice.toggleOn}>
+                    <template for:each={invoice._children} for:item="child">
+                        <li key={child.id}>
+                            <div>{child.name}</div>
+                        </li>
+                    </template>
+                    <a data-id={invoice.id} onclick={handleLoadMore}>Load More</a>
+                    </div>
+                    </ol>
+                </div>
+            </template>
+
+        </template>
+    </lightning-card>
+    <!-- onloadmore={handleLoadMore} -->
+    
+</template>

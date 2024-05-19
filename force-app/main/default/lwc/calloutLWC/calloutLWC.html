@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-tree-grid
+            columns={col}
+            data={accounts}
+            key-field="accounttId"
+            expanded-rows={currentExpanded}
+            ontoggle={handleOnToggle}
+            rowaction={rowAction}
+        ></lightning-tree-grid>
+        
+    </div>
+</template>

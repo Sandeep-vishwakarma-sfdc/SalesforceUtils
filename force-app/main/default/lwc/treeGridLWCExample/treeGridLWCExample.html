@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Invoices and Line Items">
+        <template if:true={accounts}>
+            <ol>
+                <template for:each={accounts} for:item="account">
+                    <li key={account.id} onclick={handleAccountClick} data-id={account.id}>
+                        {account.name}
+                        <template if:true={account.showItems}>
+                            <ol>
+                                <template for:each={account.items} for:item="item">
+                                    <li key={item.id}>{item.name}</li>
+                                </template>
+                                <template if:true={account.hasMoreItems}>
+                                    <li>
+                                        <a href="#" data-id={account.id} onclick={handleLoadMore}>View More</a>
+                                    </li>
+                                </template>
+                            </ol>
+                        </template>
+                    </li>
+                </template>
+            </ol>
+        </template>
+    </lightning-card>
+</template>

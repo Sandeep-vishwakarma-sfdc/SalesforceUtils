@@ -1,0 +1,25 @@
+<template>
+    <div class="container">
+        <h1>TODO App</h1>
+        <div class="input-container">
+            <lightning-input type="text" label="New Todo" value={todoInput} onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Add Todo" onclick={handleAddTodo}></lightning-button>
+        </div>
+        <ul class="todo-list">
+            <template for:each={todos} for:item="todo">
+                <li key={todo.id} class="TODO">
+                    <span>{todo.text}</span>
+                    <div>
+                        <lightning-button label="TODO"
+                                          data-id={todo.id}
+                                          onclick={handleToggleComplete}></lightning-button>
+                        <lightning-button label="Remove"
+                                          variant="destructive"
+                                          data-id={todo.id}
+                                          onclick={handleRemoveTodo}></lightning-button>
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>
