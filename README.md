@@ -3,11 +3,20 @@
 
 ## Dynamic Apex
 > Example of Getting Account Field
+<<<<<<< HEAD
 System.debug(Account.sObjectType.getDescribe().fields.getMap().get('Name').getDescribe().getName());// 
+=======
+```
+System.debug(Account.sObjectType.getDescribe().fields.getMap().get('Name').getDescribe().getName());// Name
+>>>>>>> 1af9390dbf8f0da69c7942faef0d8eb9b39a4a9f
 System.debug(Schema.sObjectType.Account.fields.Name.getsObjectField());// Name
+```
 
 > Example of getting record type id
+```
 System.debug(Schema.SObjectType.Order.getRecordTypeInfosByName().get('Promotional Cart').getRecordTypeId());
+```
+
 
 
 LWC
